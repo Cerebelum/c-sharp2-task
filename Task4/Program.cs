@@ -11,3 +11,24 @@ int[,] array = {{ 3, 27, 11, 4, 2, 15, 23, 4, 21, 14, 5, 2, 19, 25, 24, 10, 10, 
                 { 8, 3, 7, 27, 9, 27, 7, 6, 25, 26, 4, 17, 24, 6, 9, 30, 26, 3, 7, 27 },
                 { 22, 15, 24, 13, 4, 26, 3, 17, 7, 14, 19, 25, 31, 5, 23, 7, 27, 30, 15, 4 }};
 
+int Func(int[,] arr)
+{
+    int max = arr[0, 0];
+    int sum = 0;
+    for (int i = 0; i < arr.GetLength(1); i++)
+    {
+        for (int j = 0; j < arr.GetLength(0); j++)
+        {
+            if (arr[j, i] > max)
+            {
+                max = arr[j, i];
+            }
+        }
+        // Console.Write(max + " ");
+        sum += max;
+        max = 0;
+    }
+    return sum;
+}
+
+Console.WriteLine(Func(array));

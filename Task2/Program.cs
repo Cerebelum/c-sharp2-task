@@ -29,3 +29,37 @@ int[,,] array = {{
                  }
                  };
 
+int Func(int[,,] arr)
+{
+    int max = arr[0, 0, 0];
+    for (int i = 0; i < arr.GetLength(0); i++)
+    {
+        for (int j = 0; j < arr.GetLength(1); j++)
+        {
+            for (int k = 0; k < arr.GetLength(2); k++)
+            {
+                if (arr[i, j, k] > max) max = arr[i, j, k];
+            }
+        }
+    }
+    return max;
+}
+
+int Func2(int[,,] arr2)
+{
+    int count = 0;
+    for (int i = 0; i < arr2.GetLength(0); i++)
+    {
+        for (int j = 0; j < arr2.GetLength(1); j++)
+        {
+            for (int k = 0; k < arr2.GetLength(2); k++)
+            {
+                if (arr2[i, j, k] == Func(array)) count++;
+            }
+        }
+    }
+    return count;
+}
+
+Console.WriteLine(Func(array));
+Console.WriteLine(Func2(array));
